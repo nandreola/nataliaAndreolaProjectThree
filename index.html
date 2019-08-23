@@ -4,11 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="styles/style.css">
     <title>What are you getting from Santa?</title>
 </head>
 <body>
     <header>
-        <div class="wrapper">
+        <div class="wrapper headerContainer">
         	<h1>What will you get from Santa?</h1>
         	<h2>Are you nice or naughty?</h2>
         	<button class="button start">Start quiz</button>
@@ -17,11 +18,16 @@
 
     <main>
         <section>
-            <div class="wrapper">
-                <ul>
-
+            <form>
+                <ul id="jsQuestions">
+                    <!-- The questions will appear here -->
                 </ul>
-            </div> <!-- .wrapper  -->
+            </form>
+        </section>
+
+        <section class="wrapper result">
+            <h3>As you are <span id="jsResult"></span>, you will get:</h3>
+            <img id="jsGift">
         </section>
     </main>
 
