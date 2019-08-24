@@ -6,9 +6,19 @@ ul {
 li {
     height: 100vh;
     border: 1px solid red;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .questionContainer {
+        text-align: center;
+        
+    }
     
     .answerContainer {
         display: flex;
+        justify-content: space-around;
     }
 }
 

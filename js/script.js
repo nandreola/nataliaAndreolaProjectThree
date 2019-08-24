@@ -1,4 +1,4 @@
-// Set up the array of questions and answers
+// Array of questions and answers
 const quiz = [
     {
         question: 'How clean is your room?', 
@@ -102,6 +102,22 @@ const quiz = [
     }
 ];
 
+// Array of possible gifts
+const gifts = {
+    nice: {
+        image: 'https://via.placeholder.com/400',
+        alt: ''
+    },
+    neutral: {
+        image: 'https://via.placeholder.com/400',
+        alt: ''
+    },
+    naughty: {
+        image: 'https://via.placeholder.com/400',
+        alt: ''
+    }
+};
+    
 // Filter questions based on user type
 const filteredQuestions = quiz.filter(function(question){
     return question.type === 'adult';
@@ -119,18 +135,26 @@ const displayAnswers = function(answers, index) {
 
     return newAnswersArray.join('');        
 }
+
+function getButton(array, index) {
+    if (array.length -1 === index) {
+        return `<button class="button getResultsButton" id="jsGetResults">Get results</button>`
+    } else {
+        return `<button class="button next">Next</button>`
+    }
+}
     
 // Display questions based on user type
 const displayQuestions = function(questions){
-    questions.forEach(function(item, index){
+    questions.forEach(function(item, index, array){
         $('#jsQuestions').append(`
         <li>
-            <div class="wrapper">
+            <div class="wrapper questionContainer">
                 <h3>${item.question}</h3> 
                 <div class="answerContainer">
                     ${displayAnswers(item.answers, index)}          
                 </div> 
-                <button class="button next">Next</button>
+                ${getButton(array, index)}
             </div>
         </li>
         `);
@@ -147,14 +171,29 @@ $('#jsQuestions').on('click', 'label', function() {
     const score = $(this).find('input').val();
 
     scores[questionIndex] = parseInt(score, 10);
+
 });
 
-// sum up scores to find out whether user is nice or naughty
+// Event listener to get results
+$('#jsQuestions').on('click', '#jsGetResults', function(event) {
+    event.preventDefault();
+
+    // sum up scores to find out whether user is nice or naughty
+    const totalScores = scores.reduce(function (total, integer) {
+        return total + integer;
+    });
+
+});
 
 // display result image according to user's score
+
+
 
 // add smooth scroll to the page
 
 
 
+// Document ready
+$(function(){
 
+});
