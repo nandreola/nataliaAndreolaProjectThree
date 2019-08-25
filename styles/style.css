@@ -185,6 +185,20 @@ html {
 
 body {
   font-size: 2rem;
+  font-family: 'Open Sans', sans-serif;
+}
+
+h1,
+h3 {
+  font-family: 'Mountains of Christmas', cursive;
+}
+
+h1 {
+  font-size: 7rem;
+}
+
+h3 {
+  font-size: 5rem;
 }
 
 .wrapper {
@@ -204,6 +218,11 @@ img {
   margin: 20px;
 }
 
+header {
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
 .headerContainer {
   height: 100vh;
   display: -webkit-box;
@@ -220,7 +239,6 @@ img {
       -ms-flex-align: center;
           align-items: center;
   text-align: center;
-  background: lightpink;
 }
 
 ul {
@@ -231,7 +249,6 @@ ul {
 .questionSection,
 .resultContainer {
   min-height: 100vh;
-  border: 1px solid red;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -246,10 +263,6 @@ ul {
       -ms-flex-align: center;
           align-items: center;
   text-align: center;
-}
-
-.questionContainer {
-  border: 1px solid blue;
 }
 
 .answerContainer {
@@ -278,7 +291,6 @@ ul {
 }
 
 .answerBox .imgBox {
-  border: 1px solid red;
   opacity: 0.6;
 }
 

@@ -7,17 +7,11 @@ ul {
 .questionSection,
 .resultContainer {
     min-height: 100vh;
-    border: 1px solid red;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
-}
-
-// Questions section styles
-.questionContainer {
-    border: 1px solid blue;
 }
 
 // Answer section styles
@@ -39,7 +33,6 @@ ul {
     }
 
     .imgBox {
-        border: 1px solid red;
         opacity: 0.6;
 
         &:hover {

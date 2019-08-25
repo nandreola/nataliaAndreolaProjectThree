@@ -4,19 +4,19 @@ const quiz = [
         question: 'How clean is your room?', 
         answers: [
             {
-                image: 'https://via.placeholder.com/200',
+                image: 'assets/roomNice.jpg',
                 alt: '',
                 text: 'Clean and neat',
                 score: 1
             },
             {
-                image: 'https://via.placeholder.com/200',
+                image: 'assets/roomNeutral.jpg',
                 alt: '',
                 text: 'Clean, but not neat',
                 score: 0
             },
             {
-                image: 'https://via.placeholder.com/200',
+                image: 'assets/roomNaughty.jpg',
                 alt: '',
                 text: 'Racoons took over',
                 score: -1
@@ -29,19 +29,19 @@ const quiz = [
         question: 'What would you do if you see an elderly having a hard time to get in the bus?',
         answers: [
             {
-                image: 'https://via.placeholder.com/200',
+                image: 'assets/busNice.jpg',
                 alt: '',
                 text: 'Help',
                 score: 1
             },
             {
-                image: 'https://via.placeholder.com/200',
+                image: 'assets/busNeutral.jpg',
                 alt: '',
                 text: 'Wait patiently',
                 score: 0
             },
             {
-                image: 'https://via.placeholder.com/200',
+                image: 'assets/busNaughty.jpg',
                 alt: '',
                 text: 'Get angry',
                 score: -1
@@ -60,13 +60,13 @@ const quiz = [
                 score: 1
             },
             {
-                image: 'https://via.placeholder.com/200',
+                image: 'assets/donationNeutral.jpg',
                 alt: '',
-                text: 'Say "next time"',
+                text: 'Say "Not now"',
                 score: 0
             },
             {
-                image: 'https://via.placeholder.com/200',
+                image: 'assets/donationNaughty.jpg',
                 alt: '',
                 text: 'Refuse to donate',
                 score: -1
@@ -79,7 +79,7 @@ const quiz = [
         question: 'Do you always say "please"?',
         answers: [
             {
-                image: 'https://via.placeholder.com/600',
+                image: 'assets/pleaseNice.jpg',
                 alt: '',
                 text: 'Yes, please!',
                 score: 1
@@ -91,7 +91,7 @@ const quiz = [
                 score: 0
             },
             {
-                image: 'https://via.placeholder.com/200',
+                image: 'assets/pleaseNaughty.jpg',
                 alt: '',
                 text: 'Never',
                 score: -1
