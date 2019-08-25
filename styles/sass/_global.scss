@@ -12,6 +12,18 @@ img {
 .button {
     padding: 10px 30px;
     border-radius: 2px;
+    border: none;
     margin: 20px;
+    background: $secondary-color;
+    transition: all 0.3s ease;
+
+    &:hover {
+        background: $primary-color;
+        color: white;
+    }
+}
+
+a {
+    text-decoration: none;
 }
 

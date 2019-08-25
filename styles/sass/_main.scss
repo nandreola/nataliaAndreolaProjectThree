@@ -23,7 +23,7 @@ ul {
 }
 
 .answerBox {
-    border: 1px solid black;
+    border: 2px solid $txt-color;
     transition: all 0.5s ease;
     margin: 10px;
 
@@ -39,12 +39,14 @@ ul {
             opacity: 1;
         }
 
-        .imgChoice {
-            width: 200px;
-            height: 200px;
-            overflow: hidden;
-            object-fit: cover;
-        }
+    }
+
+    .imgChoice {
+        width: 250px;
+        height: 250px;
+        overflow: hidden;
+        object-fit: cover;
+        border-bottom: 1px solid $txt-color;
     }
 
     input[type="radio"] {
@@ -56,7 +58,8 @@ ul {
         }
 
         &:checked ~ .textChoice {
-            color: red;
+            color: $primary-color;
+            font-weight: bold;
         }
     }
 }
@@ -65,5 +68,54 @@ ul {
 .giftContainer {
     margin: 30px;
     width: 70%;
+
+    .giftImg {
+        margin: auto;
+    }
 }
 
+// // Responsiveness 
+// @media (max-width: 1024px) {
+//     .answerContainer {
+//         padding: 50px 0;
+//     }
+// } 
+
+// @media (max-width: 910px) {
+//     .answerBox .imgChoice {
+//         width: 200px;
+//         height: 200px;
+//     }
+// }
+
+
+// @media (max-width: 768px) {
+//     .answerContainer {
+//         padding: 30px 0;
+//     }
+
+//     .answerBox .imgChoice {
+//         width: 170px;
+//         height: 170px;
+//     }
+// }
+
+// @media (max-width: 670px) {
+//     h3 {
+//         font-size: 3.5rem;
+//     }
+
+//     .answerContainer {
+//         flex-direction: column;
+//     }
+
+//     .answerBox {
+//         // width: 80%;
+//     }
+
+//     .answerBox .imgChoice {
+//         // width: 300px;
+//         // height: 300px;
+//         width: 100%;
+//     }
+// }

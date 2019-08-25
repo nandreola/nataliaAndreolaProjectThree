@@ -5,19 +5,19 @@ const quiz = [
         answers: [
             {
                 image: 'assets/roomNice.jpg',
-                alt: '',
+                alt: 'Neat and clean bedroom',
                 text: 'Clean and neat',
                 score: 1
             },
             {
                 image: 'assets/roomNeutral.jpg',
-                alt: '',
+                alt: 'Bedroom not 100% organized',
                 text: 'Clean, but not neat',
                 score: 0
             },
             {
                 image: 'assets/roomNaughty.jpg',
-                alt: '',
+                alt: 'Racoon',
                 text: 'Racoons took over',
                 score: -1
             }
@@ -26,7 +26,7 @@ const quiz = [
         type: 'adult' 
     },
     {
-        question: 'What would you do if you see an elderly having a hard time to get in the bus?',
+        question: 'If you see an elderly having a hard time to get in the bus, you:',
         answers: [
             {
                 image: 'assets/busNice.jpg',
@@ -42,45 +42,47 @@ const quiz = [
             },
             {
                 image: 'assets/busNaughty.jpg',
-                alt: '',
+                alt: 'Man with an angry face',
                 text: 'Get angry',
                 score: -1
             }
         ],
         background: 'bg-green',
-        type: 'adult'
+        type: 'adult',
+        id: 'bus'
     },
     {
         question: 'When asked for donation at the grocery store, you:',
         answers: [
             {
                 image: 'assets/donationNice.jpg',
-                alt: '',
+                alt: 'Hand with some cash',
                 text: 'Donate',
                 score: 1
             },
             {
                 image: 'assets/donationNeutral.jpg',
-                alt: '',
+                alt: 'Not now sign',
                 text: 'Say "Not now"',
                 score: 0
             },
             {
                 image: 'assets/donationNaughty.jpg',
-                alt: '',
+                alt: 'Man holding cash',
                 text: 'Refuse to donate',
                 score: -1
             }
         ],
         background: 'bg-red',
-        type: 'adult'
+        type: 'adult',
+        id: 'donation'
     },
     {
         question: 'Do you always say "please"?',
         answers: [
             {
                 image: 'assets/pleaseNice.jpg',
-                alt: '',
+                alt: 'Please say please sign',
                 text: 'Yes, please!',
                 score: 1
             },
@@ -92,13 +94,14 @@ const quiz = [
             },
             {
                 image: 'assets/pleaseNaughty.jpg',
-                alt: '',
+                alt: 'Child with his tongue out',
                 text: 'Never',
                 score: -1
             }
         ],
         background: 'bg-green',
-        type: 'adult'
+        type: 'adult',
+        id: 'please'
     }
 ];
 
@@ -112,12 +115,12 @@ const gifts = {
     neutral: {
         text: 'not too naughty',
         image: 'assets/giftNeutral.jpg',
-        alt: ''
+        alt: 'Red shirt with three check-boxes, first for naughty, second for nice, and last one is checked for I tried'
     },
     naughty: {
         text: 'naughty',
         image: 'assets/giftNaughty.jpg',
-        alt: ''
+        alt: 'Funny pair of hairy shoes'
     }
 };
     
@@ -145,7 +148,8 @@ function getButton(array, index) {
     if (array.length -1 === index) {
         return `<button class="button getResultsButton" id="jsGetResults">Get results</button>`
     } else {
-        return `<button class="button next">Next</button>`
+        const id = array[index + 1].id;
+        return `<a href="#${id}" class="button">Next</a>`
     }
 }
     
@@ -153,7 +157,7 @@ function getButton(array, index) {
 const displayQuestions = function(questions){
     questions.forEach(function(item, index, array){
         $('#jsQuestions').append(`
-        <li class="questionSection">
+        <li class="questionSection" id="${item.id}">
             <div class="wrapper questionContainer">
                 <h3>${item.question}</h3> 
                 <div class="answerContainer">
@@ -194,17 +198,15 @@ $('#jsQuestions').on('click', '#jsGetResults', function(event) {
 const displayGift = function(totalScores) {
     if (totalScores > 0) {
         $('#jsResultText').append(`${gifts.nice.text}`);
-        $('#jsGift').append(`<img src="${gifts.nice.image}" alt="${gifts.nice.alt}">`);
+        $('#jsGift').append(`<img src="${gifts.nice.image}" alt="${gifts.nice.alt}" class="giftImg">`);
     } else if (totalScores < 0) {
         $('#jsResultText').append(`${gifts.naughty.text}`);
-        $('#jsGift').append(`<img src="${gifts.naughty.image}" alt="${gifts.naughty.alt}">`);
+        $('#jsGift').append(`<img src="${gifts.naughty.image}" alt="${gifts.naughty.alt}" class="giftImg">`);
     } else {
         $('#jsResultText').append(`${gifts.neutral.text}`);
-        $('#jsGift').append(`<img src="${gifts.neutral.image}" alt="${gifts.neutral.alt}">`);
+        $('#jsGift').append(`<img src="${gifts.neutral.image}" alt="${gifts.neutral.alt}" class="giftImg">`);
     };
 }
-
-
 
 // Play again 
 $('#jsPlayAgain').on('click', function() {

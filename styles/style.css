@@ -183,14 +183,17 @@ html {
   font-size: 62.5%;
 }
 
-body {
+body,
+a {
   font-size: 2rem;
   font-family: 'Open Sans', sans-serif;
+  color: black;
 }
 
 h1,
 h3 {
   font-family: 'Mountains of Christmas', cursive;
+  color: #B81209;
 }
 
 h1 {
@@ -215,11 +218,25 @@ img {
 .button {
   padding: 10px 30px;
   border-radius: 2px;
+  border: none;
   margin: 20px;
+  background: goldenrod;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.button:hover {
+  background: #B81209;
+  color: white;
+}
+
+a {
+  text-decoration: none;
 }
 
 header {
-  background-size: cover;
+  background-image: url("../assets/ribbon.png");
+  background-size: 30%;
   background-repeat: no-repeat;
 }
 
@@ -277,7 +294,7 @@ ul {
 }
 
 .answerBox {
-  border: 1px solid black;
+  border: 2px solid black;
   -webkit-transition: all 0.5s ease;
   transition: all 0.5s ease;
   margin: 10px;
@@ -298,12 +315,13 @@ ul {
   opacity: 1;
 }
 
-.answerBox .imgBox .imgChoice {
-  width: 200px;
-  height: 200px;
+.answerBox .imgChoice {
+  width: 250px;
+  height: 250px;
   overflow: hidden;
   -o-object-fit: cover;
      object-fit: cover;
+  border-bottom: 1px solid black;
 }
 
 .answerBox input[type="radio"] {
@@ -316,10 +334,15 @@ ul {
 }
 
 .answerBox input[type="radio"]:checked ~ .textChoice {
-  color: red;
+  color: #B81209;
+  font-weight: bold;
 }
 
 .giftContainer {
   margin: 30px;
   width: 70%;
+}
+
+.giftContainer .giftImg {
+  margin: auto;
 }
