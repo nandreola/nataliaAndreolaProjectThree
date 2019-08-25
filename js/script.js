@@ -18,7 +18,7 @@ const quiz = [
             {
                 image: 'https://via.placeholder.com/200',
                 alt: '',
-                text: 'Raccons took over',
+                text: 'Racoons took over',
                 score: -1
             }
         ],
@@ -54,7 +54,7 @@ const quiz = [
         question: 'When asked for donation at the grocery store, you:',
         answers: [
             {
-                image: 'https://via.placeholder.com/200',
+                image: 'assets/donationNice.jpg',
                 alt: '',
                 text: 'Donate',
                 score: 1
@@ -79,7 +79,7 @@ const quiz = [
         question: 'Do you always say "please"?',
         answers: [
             {
-                image: 'https://via.placeholder.com/200',
+                image: 'https://via.placeholder.com/600',
                 alt: '',
                 text: 'Yes, please!',
                 score: 1
@@ -105,15 +105,18 @@ const quiz = [
 // Array of possible gifts
 const gifts = {
     nice: {
+        text: 'nice',
         image: 'https://via.placeholder.com/400',
         alt: ''
     },
     neutral: {
-        image: 'https://via.placeholder.com/400',
+        text: 'not too naughty',
+        image: 'assets/giftNeutral.jpg',
         alt: ''
     },
     naughty: {
-        image: 'https://via.placeholder.com/400',
+        text: 'naughty',
+        image: 'assets/giftNaughty.jpg',
         alt: ''
     }
 };
@@ -127,9 +130,11 @@ const filteredQuestions = quiz.filter(function(question){
 const displayAnswers = function(answers, index) {
     const newAnswersArray = answers.map( item => 
         `<label class="answerBox" data-question="${index}">
-            <img src="${item.image}" alt="${item.alt}">
             <input type="radio" name="answer" value="${item.score}">
-            <p>${item.text}</p>
+            <div class="imgBox">
+                <img src="${item.image}" alt="${item.alt}" class="imgChoice">
+            </div>
+            <p class="textChoice">${item.text}</p>
         </label>
     `);
 
@@ -148,7 +153,7 @@ function getButton(array, index) {
 const displayQuestions = function(questions){
     questions.forEach(function(item, index, array){
         $('#jsQuestions').append(`
-        <li>
+        <li class="questionSection">
             <div class="wrapper questionContainer">
                 <h3>${item.question}</h3> 
                 <div class="answerContainer">
@@ -171,7 +176,6 @@ $('#jsQuestions').on('click', 'label', function() {
     const score = $(this).find('input').val();
 
     scores[questionIndex] = parseInt(score, 10);
-
 });
 
 // Event listener to get results
@@ -181,12 +185,31 @@ $('#jsQuestions').on('click', '#jsGetResults', function(event) {
     // sum up scores to find out whether user is nice or naughty
     const totalScores = scores.reduce(function (total, integer) {
         return total + integer;
-    });
+    }, 0);
 
+    displayGift(totalScores);
 });
 
 // display result image according to user's score
+const displayGift = function(totalScores) {
+    if (totalScores > 0) {
+        $('#jsResultText').append(`${gifts.nice.text}`);
+        $('#jsGift').append(`<img src="${gifts.nice.image}" alt="${gifts.nice.alt}">`);
+    } else if (totalScores < 0) {
+        $('#jsResultText').append(`${gifts.naughty.text}`);
+        $('#jsGift').append(`<img src="${gifts.naughty.image}" alt="${gifts.naughty.alt}">`);
+    } else {
+        $('#jsResultText').append(`${gifts.neutral.text}`);
+        $('#jsGift').append(`<img src="${gifts.neutral.image}" alt="${gifts.neutral.alt}">`);
+    };
+}
 
+
+
+// Play again 
+$('#jsPlayAgain').on('click', function() {
+    
+})
 
 
 // add smooth scroll to the page

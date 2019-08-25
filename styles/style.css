@@ -199,8 +199,9 @@ img {
 }
 
 .button {
-  padding: 20px 30px;
+  padding: 10px 30px;
   border-radius: 2px;
+  margin: 20px;
 }
 
 .headerContainer {
@@ -218,6 +219,7 @@ img {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  text-align: center;
   background: lightpink;
 }
 
@@ -226,8 +228,9 @@ ul {
   margin: 0;
 }
 
-li {
-  height: 100vh;
+.questionSection,
+.resultContainer {
+  min-height: 100vh;
   border: 1px solid red;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -242,25 +245,69 @@ li {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-}
-
-li .questionContainer {
   text-align: center;
 }
 
-li .answerContainer {
+.questionContainer {
+  border: 1px solid blue;
+}
+
+.answerContainer {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-pack: distribute;
       justify-content: space-around;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  padding: 80px 0;
 }
 
-.answerBox input {
+.answerBox {
+  border: 1px solid black;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  margin: 10px;
+}
+
+.answerBox:hover {
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
+  -webkit-box-shadow: 0 0 8px 0 black;
+          box-shadow: 0 0 8px 0 black;
+}
+
+.answerBox .imgBox {
+  border: 1px solid red;
+  opacity: 0.6;
+}
+
+.answerBox .imgBox:hover {
+  opacity: 1;
+}
+
+.answerBox .imgBox .imgChoice {
+  width: 200px;
+  height: 200px;
+  overflow: hidden;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.answerBox input[type="radio"] {
   position: absolute;
   opacity: 0;
 }
 
-.result {
-  height: 100vh;
+.answerBox input[type="radio"]:checked ~ .imgBox {
+  opacity: 1;
+}
+
+.answerBox input[type="radio"]:checked ~ .textChoice {
+  color: red;
+}
+
+.giftContainer {
+  margin: 30px;
+  width: 70%;
 }
