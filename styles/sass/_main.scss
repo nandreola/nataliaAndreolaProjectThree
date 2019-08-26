@@ -1,9 +1,4 @@
 // General styles
-ul {
-    padding-left: 0;
-    margin: 0;
-}
-
 .questionSection,
 .resultContainer {
     min-height: 100vh;
@@ -12,6 +7,21 @@ ul {
     justify-content: center;
     align-items: center;
     text-align: center;
+}
+
+.questionSection {
+    background-image: url('../assets/starBg.jpg');
+}
+
+.resultSection {
+    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.5)), url('../assets/giftBg.jpg');
+}
+
+.questionSection,
+.resultSection { 
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 // Answer section styles
@@ -26,6 +36,7 @@ ul {
     border: 2px solid $txt-color;
     transition: all 0.5s ease;
     margin: 10px;
+    background: $light-color;
 
     &:hover {
         transform: scale(1.05);

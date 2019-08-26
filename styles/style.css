@@ -187,6 +187,7 @@ body,
 a {
   font-size: 2rem;
   font-family: 'Open Sans', sans-serif;
+  letter-spacing: 2px;
   color: black;
 }
 
@@ -232,6 +233,12 @@ img {
 
 a {
   text-decoration: none;
+  display: inline-block;
+}
+
+ul {
+  padding-left: 0;
+  margin: 0;
 }
 
 header {
@@ -258,11 +265,6 @@ header {
   text-align: center;
 }
 
-ul {
-  padding-left: 0;
-  margin: 0;
-}
-
 .questionSection,
 .resultContainer {
   min-height: 100vh;
@@ -282,6 +284,22 @@ ul {
   text-align: center;
 }
 
+.questionSection {
+  background-image: url("../assets/starBg.jpg");
+}
+
+.resultSection {
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.5))), url("../assets/giftBg.jpg");
+  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.5)), url("../assets/giftBg.jpg");
+}
+
+.questionSection,
+.resultSection {
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
 .answerContainer {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -298,6 +316,7 @@ ul {
   -webkit-transition: all 0.5s ease;
   transition: all 0.5s ease;
   margin: 10px;
+  background: white;
 }
 
 .answerBox:hover {

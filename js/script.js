@@ -125,6 +125,7 @@ const gifts = {
 };
     
 // Filter questions based on user type
+// I added this filter method because on my streach goal, it would be the option for the user to choose if child or adult 
 const filteredQuestions = quiz.filter(function(question){
     return question.type === 'adult';
 });
@@ -133,7 +134,7 @@ const filteredQuestions = quiz.filter(function(question){
 const displayAnswers = function(answers, index) {
     const newAnswersArray = answers.map( item => 
         `<label class="answerBox" data-question="${index}">
-            <input type="radio" name="answer" value="${item.score}">
+            <input type="radio" name="answer" value="${item.score}" required>
             <div class="imgBox">
                 <img src="${item.image}" alt="${item.alt}" class="imgChoice">
             </div>
@@ -172,7 +173,7 @@ const displayQuestions = function(questions){
 displayQuestions(filteredQuestions);
 
 // Create array to store scores
-const scores = [];
+let scores = [];
 
 // Get points as per answers selected  
 $('#jsQuestions').on('click', 'label', function() {
@@ -197,26 +198,28 @@ $('#jsQuestions').on('click', '#jsGetResults', function(event) {
 // display result image according to user's score
 const displayGift = function(totalScores) {
     if (totalScores > 0) {
-        $('#jsResultText').append(`${gifts.nice.text}`);
-        $('#jsGift').append(`<img src="${gifts.nice.image}" alt="${gifts.nice.alt}" class="giftImg">`);
+        $('#jsResultText').html(`${gifts.nice.text}`);
+        $('#jsGift').html(`<img src="${gifts.nice.image}" alt="${gifts.nice.alt}" class="giftImg">`);
     } else if (totalScores < 0) {
-        $('#jsResultText').append(`${gifts.naughty.text}`);
-        $('#jsGift').append(`<img src="${gifts.naughty.image}" alt="${gifts.naughty.alt}" class="giftImg">`);
+        $('#jsResultText').html(`${gifts.naughty.text}`);
+        $('#jsGift').html(`<img src="${gifts.naughty.image}" alt="${gifts.naughty.alt}" class="giftImg">`);
     } else {
-        $('#jsResultText').append(`${gifts.neutral.text}`);
-        $('#jsGift').append(`<img src="${gifts.neutral.image}" alt="${gifts.neutral.alt}" class="giftImg">`);
+        $('#jsResultText').html(`${gifts.neutral.text}`);
+        $('#jsGift').html(`<img src="${gifts.neutral.image}" alt="${gifts.neutral.alt}" class="giftImg">`);
     };
 }
 
 // Play again 
 $('#jsPlayAgain').on('click', function() {
-    
-})
+    $('input').removeAttr('checked');
+    scores = [];
+    $('#jsResultText').html('');
+    $('#jsGift').html('');
 
-
-// add smooth scroll to the page
-
-
+    // Scroll to top 
+    // https://stackoverflow.com/a/1145297
+    $("html, body").animate({ scrollTop: 0 }, "slow");
+});
 
 // Document ready
 $(function(){
