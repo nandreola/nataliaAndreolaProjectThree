@@ -312,7 +312,7 @@ header {
 }
 
 .answerBox {
-  border: 2px solid black;
+  border: 1px solid black;
   -webkit-transition: all 0.5s ease;
   transition: all 0.5s ease;
   margin: 10px;
@@ -324,6 +324,7 @@ header {
           transform: scale(1.05);
   -webkit-box-shadow: 0 0 8px 0 black;
           box-shadow: 0 0 8px 0 black;
+  cursor: pointer;
 }
 
 .answerBox .imgBox {
@@ -364,4 +365,18 @@ header {
 
 .giftContainer .giftImg {
   margin: auto;
+  max-height: 500px;
+}
+
+@media (max-width: 768px) {
+  .answerContainer {
+    padding: 10px 0;
+  }
+  h1 {
+    font-size: 6rem;
+  }
+  h3 {
+    margin: 20px 0;
+    font-size: 3.5rem;
+  }
 }
