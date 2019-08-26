@@ -32,13 +32,13 @@ $(function () {
             answers: [
                 {
                     image: 'assets/busNice.jpg',
-                    alt: '',
+                    alt: 'People standing in front of a streetcar',
                     text: 'Help',
                     score: 1
                 },
                 {
                     image: 'assets/busNeutral.jpg',
-                    alt: '',
+                    alt: 'People getting on the bus',
                     text: 'Wait patiently',
                     score: 0
                 },
@@ -87,8 +87,8 @@ $(function () {
                     score: 1
                 },
                 {
-                    image: 'https://via.placeholder.com/200',
-                    alt: '',
+                    image: 'assets/pleaseNeutral.jpg',
+                    alt: 'Thumb\'s up',
                     text: 'Sometimes',
                     score: 0
                 },
@@ -110,13 +110,13 @@ $(function () {
             text: 'nice',
             image: 'assets/giftNice.jpg',
             alt: 'Asaf holding a microphone',
-            description: 'A stand-up comedy ticket'
+            description: 'A Stand-up Comedy Ticket'
         },
         neutral: {
             text: 'not too naughty',
             image: 'assets/giftNeutral.jpg',
             alt: 'Red shirt with three check-boxes, first for naughty, second for nice, and last one is checked for I tried',
-            description: 'A t-shirt to wear on Xmas eve'
+            description: 'A T-shirt to wear on Xmas Eve'
         },
         naughty: {
             text: 'naughty',
@@ -248,6 +248,7 @@ $(function () {
         scores = [];
         $('#jsResultText').html('');
         $('#jsGift').html('');
+        $('#jsResultDescription').html('');
     
         // Scroll to top 
         // https://stackoverflow.com/a/1145297

@@ -248,7 +248,7 @@ header {
 }
 
 .headerContainer {
-  height: 100vh;
+  min-height: 100vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -358,6 +358,10 @@ header {
   font-weight: bold;
 }
 
+.answerBox input[type="radio"]:focus ~ .imgBox {
+  opacity: 1;
+}
+
 .giftContainer {
   margin: 30px;
   width: 70%;
@@ -366,6 +370,11 @@ header {
 .giftContainer .giftImg {
   margin: auto;
   max-height: 500px;
+}
+
+.giftContainer .resultDesc {
+  font-size: 3rem;
+  font-weight: bold;
 }
 
 @media (max-width: 768px) {

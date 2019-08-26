@@ -72,6 +72,10 @@
             color: $primary-color;
             font-weight: bold;
         }
+
+        &:focus ~ .imgBox {
+            opacity: 1;
+        }
     }
 }
 
@@ -83,6 +87,11 @@
     .giftImg {
         margin: auto;
         max-height: 500px;
+    }
+    
+    .resultDesc {
+        font-size: 3rem;
+        font-weight: bold;
     }
 }
 
